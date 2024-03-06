@@ -9,8 +9,20 @@
 </head>
 <body>
     <h1>THE MIDNIGHT LIBRARY</h1>
-    <button id="addBook">Add book</button>
-    <div class="library">
+
+    <button id="openModal">Add book</button>
+
+    <dialog id="modal">
+        <h1>Add to library</h1>
+        <input type="text" id="title" name="title" placeholder="Title">
+        <input type="text" id="author" name="author" placeholder="Author">
+        <input type="text" id="pages" name="pages" placeholder="Pages">
+        <legend for="readStatus" >Have you read it?</legend>
+        <input type="checkbox" name="read" id="readStatus">
+        <button id="addBook"></button>
+    </dialog>
+
+    <div id="library">
         <div class="book">
             <h2>Animal Farm</h2>
             <h3>by George Orwell</h3>

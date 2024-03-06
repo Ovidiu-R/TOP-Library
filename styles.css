@@ -1,3 +1,5 @@
+
+
 body {
     background-color: rgb(83, 28, 28);
 }
@@ -6,17 +8,65 @@ h1 {
     text-align: center;
 }
 
+#library {
+    width: 1200px;
+    padding: 50px;
+    display: grid;
+    
+}
+
 .book {
     text-align: center;
     height: 300px;
     width: 200px;
     background-color: rgb(238, 76, 76);
+    box-sizing: border-box;
+    padding: 0px;
+    border: 2px transparent solid;
 }
 
-button {
+.book:hover {
+    border: 2px solid white;
+    transition: 300ms;
+}
+
+#openModal {
     font-size: 20px;
     background-color: aquamarine;
     border-radius: 8px;
     height: 50px;
     width: 200px;
 }
+
+dialog>button {
+    height: 30px;
+    width: 100px;
+}
+
+dialog * {
+    margin: 10px;
+}
+
+dialog {
+    text-align: center;
+    height: 400px;
+    width: 280px;
+    border: 1px brown solid;
+    border-radius: 12px;
+    background-color: brown;
+    padding: 20px;
+}
+
+input {
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 15px 0px 15px 0px;
+    padding: 4px 12px;
+    width: 220px;
+}
+
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
