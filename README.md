@@ -1,1 +1,1 @@
-# TOP-Library
+A simple project for the purpose of practicing with constructors. There will be a basic UI allowing the user to input book information which, once submitted, will be rendered in a virtual library where each entry is displayed as a card.
