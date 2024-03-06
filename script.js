@@ -10,11 +10,13 @@ const library = document.querySelector('.library');
 openModal.addEventListener('click', () => {
     dialog.showModal();
     const addBook = document.getElementById('addBook').addEventListener('click', () => {
+        //if fields are all filled in
+        generateBook(/*various attributes necessary*/);
         dialog.close();
     });
 });
 
-function generateBook() {
+function generateBook(/*parameters*/) {
     //constructor
 }
 
