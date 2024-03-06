@@ -2,19 +2,31 @@
 
 body {
     background-color: rgb(83, 28, 28);
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    gap: 50px;
+    padding: 0px;
+    margin: 0px;
+
 }
 
 h1 {
-    text-align: center;
+    justify-self: center;
+}
+
+#header {
+    background-color: paleturquoise;
+    align-self: start;
+    display: grid;
+}
+
+#main {
+    
 }
 
 #library {
-    resize: both;
-    overflow: auto;
-    /* width: 1200px; */
     padding: 100px;
     display: grid;
-    grid-template-rows: repeat(2, 300px);
     grid-template-columns: repeat(auto-fit, 200px);
     gap: 20px;
     
@@ -28,6 +40,8 @@ h1 {
     box-sizing: border-box;
     padding: 0px;
     border: 2px transparent solid;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px 2px;
 }
 
 .book:hover {

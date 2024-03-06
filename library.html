@@ -8,83 +8,55 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>THE MIDNIGHT LIBRARY</h1>
+    <div id="header">
+        <h1>THE MIDNIGHT LIBRARY</h1>
+    </div>
+    <div id="main">
+        <button id="openModal">New book</button>
 
-    <button id="openModal">New book</button>
+        <dialog id="modal">
+            <h1>Add to library</h1>
+            <input type="text" id="title" name="title" placeholder="Title">
+            <input type="text" id="author" name="author" placeholder="Author">
+            <input type="text" id="pages" name="pages" placeholder="Pages">
+            <label for="readStatus" style="font-size: 18px; color: white;" >Have you read it?</label>
+            <input type="checkbox" name="read" id="readStatus">
+            <button id="addBook">Add Book</button>
+        </dialog>
 
-    <dialog id="modal">
-        <h1>Add to library</h1>
-        <input type="text" id="title" name="title" placeholder="Title">
-        <input type="text" id="author" name="author" placeholder="Author">
-        <input type="text" id="pages" name="pages" placeholder="Pages">
-        <label for="readStatus" style="font-size: 18px; color: white;" >Have you read it?</label>
-        <input type="checkbox" name="read" id="readStatus">
-        <button id="addBook">Add Book</button>
-    </dialog>
-
-    <div id="library">
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
-        </div>
-        <div class="book">
-            <h2>Animal Farm</h2>
-            <h3>by George Orwell</h3>
-            <p>144 pg</p>
-            <label for="readStatus">Read</label>
-            <input type="checkbox" id="readStatus">
+        <div id="library">
+            <div class="book">
+                <h2>Animal Farm</h2>
+                <h3>by</h3>
+                <h3>George Orwell</h3>
+                <p>144 pg</p>
+                <label for="readStatus">Read</label>
+                <input type="checkbox" id="readStatus">
+            </div>
+            <div class="book">
+                <h2>Animal Farm</h2>
+                <h3>by</h3>
+                <h3>George Orwell</h3>
+                <p>144 pg</p>
+                <label for="readStatus">Read</label>
+                <input type="checkbox" id="readStatus">
+            </div>
+            <div class="book">
+                <h2>Animal Farm</h2>
+                <h3>by</h3>
+                <h3>George Orwell</h3>
+                <p>144 pg</p>
+                <label for="readStatus">Read</label>
+                <input type="checkbox" id="readStatus">
+            </div>
+            <div class="book">
+                <h2>Animal Farm</h2>
+                <h3>by</h3>
+                <h3>George Orwell</h3>
+                <p>144 pg</p>
+                <label for="readStatus">Read</label>
+                <input type="checkbox" id="readStatus">
+            </div>
         </div>
     </div>
 </body>
