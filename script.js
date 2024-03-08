@@ -18,6 +18,7 @@ openModal.addEventListener('click', () => {
         let newBook = new generateBook(title.value, author.value, pages.value, readStatus.checked);
         addToLibrary(newBook);
         resetModal();
+        drawLibrary();
         dialog.close();
         }
     });
@@ -43,6 +44,31 @@ function resetModal() {
     author.value = "";
     pages.value = "";
     readStatus.checked = false;
+}
+
+function drawLibrary() {
+    myLibrary.forEach((book) => {
+        let container = document.createElement('div');
+        let title = document.createElement('h2');
+        let by = document.createElement('h3');
+        let author = document.createElement('h3');
+        let pages = document.createElement('h2');
+        let label = document.createElement('label');
+        let checkbox = document.createElement('input[type="checkbox"]');
+        container.classList.add ('book');
+        title.textContent = book.title;
+        by.textContent = "by";
+        author.textContent = book.author;
+        pages.textContent = book.pages;
+        label.textContent = "Finished";
+        checkbox.checked = book.readStatus;
+
+        container.appendChild(title).appendChild(by).appendChild(author).appendChild(pages).appendChild(label).appendChild(checkbox);
+        library.appendChild(container);
+
+
+
+    });
 }
 
 /*Function to change object content based on result of read checkbox on each book*/
