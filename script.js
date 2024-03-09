@@ -1,10 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: "Caves of Steel",
+        author: "R. Daneel Olivaw",
+        pages: 224,
+        readStatus: true,
+        index: 0
+    }
+];
 const dialog = document.querySelector('dialog');
 const openModal = document.getElementById('openModal');
-const library = document.querySelector('.library');
+const library = document.getElementById('library');
 
 
 openModal.addEventListener('click', () => {
@@ -37,7 +45,6 @@ function addToLibrary(newBook) {
     console.log(myLibrary);
 }
 
-});
 
 function resetModal() {
     title.value = "";
@@ -47,6 +54,9 @@ function resetModal() {
 }
 
 function drawLibrary() {
+    while (library.firstChild){
+        library.removeChild(library.lastChild);
+    }
     myLibrary.forEach((book) => {
         let container = document.createElement('div');
         let title = document.createElement('h2');
@@ -54,7 +64,8 @@ function drawLibrary() {
         let author = document.createElement('h3');
         let pages = document.createElement('h2');
         let label = document.createElement('label');
-        let checkbox = document.createElement('input[type="checkbox"]');
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
         container.classList.add ('book');
         title.textContent = book.title;
         by.textContent = "by";
@@ -63,12 +74,11 @@ function drawLibrary() {
         label.textContent = "Finished";
         checkbox.checked = book.readStatus;
 
-        container.appendChild(title).appendChild(by).appendChild(author).appendChild(pages).appendChild(label).appendChild(checkbox);
+        container.append (title, by, author, pages, label, checkbox);
+        console.log (container);
         library.appendChild(container);
-
-
-
     });
 }
 
+});
 /*Function to change object content based on result of read checkbox on each book*/
