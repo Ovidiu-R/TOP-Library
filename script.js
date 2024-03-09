@@ -7,9 +7,10 @@ const myLibrary = [
         author: "R. Daneel Olivaw",
         pages: 224,
         readStatus: true,
-        index: 0
     }
 ];
+
+console.log (myLibrary);
 const dialog = document.querySelector('dialog');
 const openModal = document.getElementById('openModal');
 const library = document.getElementById('library');
@@ -32,12 +33,17 @@ openModal.addEventListener('click', () => {
     });
 });
 
+document.addEventListener ('click', function (e) {
+    removeBook(e);
+    console.log (myLibrary);
+
+});
+
 function generateBook(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.readStatus = readStatus;
-    this.index = myLibrary.length;
 }
 
 function addToLibrary(newBook) {
@@ -68,6 +74,7 @@ function drawLibrary() {
         let remove = document.createElement('button');
         checkbox.type = 'checkbox';
         container.classList.add ('book');
+        container.setAttribute ('data-index', myLibrary.indexOf(book));
         title.textContent = book.title;
         by.textContent = "by";
         author.textContent = book.author;
@@ -75,8 +82,8 @@ function drawLibrary() {
         label.textContent = "Finished  ";
         label.style.display = "inline";
         checkbox.checked = book.readStatus;
+        remove.classList.add ('removeBook');
         remove.textContent = "Remove";
-
 
         container.append (title, by, author, pages, label, checkbox, remove);
         console.log (container);
@@ -84,5 +91,14 @@ function drawLibrary() {
     });
 }
 
+function removeBook(e) {
+    if (e.target.classList.contains('removeBook')) {
+        console.log (e.target.parentElement.getAttribute('data-index'));
+        myLibrary.splice(e.target.parentElement.getAttribute('data-index'), 1);
+        e.target.parentElement.remove();
+    }
+}
+
 });
+
 /*Function to change object content based on result of read checkbox on each book*/
