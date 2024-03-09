@@ -97,3 +97,12 @@ input[type="text"] {
     backdrop-filter: blur(5px);
 }
 
+.book > button {
+    height: 40px;
+    width: 120px;
+    margin-top: 20px;
+}
+
+.finished {
+    display: inline;
+}

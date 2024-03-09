@@ -63,8 +63,9 @@ function drawLibrary() {
         let by = document.createElement('h3');
         let author = document.createElement('h3');
         let pages = document.createElement('h2');
-        let label = document.createElement('label');
+        let label = document.createElement('p');
         let checkbox = document.createElement('input');
+        let remove = document.createElement('button');
         checkbox.type = 'checkbox';
         container.classList.add ('book');
         title.textContent = book.title;
@@ -72,9 +73,14 @@ function drawLibrary() {
         author.textContent = book.author;
         pages.textContent = book.pages;
         label.textContent = "Finished";
+        label.style.display = "inline";
         checkbox.checked = book.readStatus;
+        remove.textContent = "Remove";
+        remove.style.display = "block";
+        remove.style.textAlign = "center";   /*WTF*/
 
-        container.append (title, by, author, pages, label, checkbox);
+
+        container.append (title, by, author, pages, label, checkbox, remove);
         console.log (container);
         library.appendChild(container);
     });
