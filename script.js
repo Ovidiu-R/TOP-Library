@@ -93,8 +93,16 @@ function drawLibrary() {
 
 function removeBook(e) {
     if (e.target.classList.contains('removeBook')) {
-        console.log (e.target.parentElement.getAttribute('data-index'));
-        myLibrary.splice(e.target.parentElement.getAttribute('data-index'), 1);
+        let removeIndex = e.target.parentElement.getAttribute('data-index');
+        console.log (removeIndex);
+        myLibrary.splice(removeIndex, 1);
+        
+        let books = e.target.parentElement.parentElement.children;
+        console.log (books);
+        for (let i=removeIndex; i<= myLibrary.length; i++){
+            let currentIndex = books[i].getAttribute ('data-index');
+            books[i].setAttribute ('data-index', currentIndex - 1);
+        }
         e.target.parentElement.remove();
     }
 }
