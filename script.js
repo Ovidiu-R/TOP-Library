@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-
 const myLibrary = [
     {
         title: "Caves of Steel",
@@ -10,11 +8,9 @@ const myLibrary = [
     }
 ];
 
-console.log (myLibrary);
 const dialog = document.querySelector('dialog');
 const openModal = document.getElementById('openModal');
 const library = document.getElementById('library');
-
 
 openModal.addEventListener('click', () => {
     dialog.showModal();
@@ -41,8 +37,6 @@ document.addEventListener ('click', function (e) {
     }
 });
 
-
-
 function generateBook(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
@@ -52,22 +46,11 @@ function generateBook(title, author, pages, readStatus) {
 
 function readToggle(e) {
     let checkIndex = e.target.parentElement.getAttribute('data-index');
-    console.log ('TEST TEST TEST');
     myLibrary[checkIndex].readStatus = !myLibrary[checkIndex].readStatus;
-    console.log(myLibrary[checkIndex].readStatus);
 }
-
-// generateBook.prototype.readToggle = () => {
-//     if (this.readStatus == true){
-//         this.readStatus = false;
-//     } else {
-//         this.readStatus = true;
-//     }
-// }
 
 function addToLibrary(newBook) {
     myLibrary.push(newBook);
-    console.log(myLibrary);
 }
 
 
@@ -106,18 +89,14 @@ function drawLibrary() {
         remove.textContent = "Remove";
 
         container.append (title, by, author, pages, label, checkbox, remove);
-        console.log (container);
         library.appendChild(container);
     });
 }
 
 function removeBook(e) {
         let removeIndex = e.target.parentElement.getAttribute('data-index');
-        console.log (removeIndex);
         myLibrary.splice(removeIndex, 1);
-        
         let books = e.target.parentElement.parentElement.children;
-        console.log (books);
         for (let i=removeIndex; i<= myLibrary.length; i++){
             let currentIndex = books[i].getAttribute ('data-index');
             books[i].setAttribute ('data-index', currentIndex - 1);
@@ -126,5 +105,3 @@ function removeBook(e) {
 }
 
 });
-
-/*Function to change object content based on result of read checkbox on each book*/

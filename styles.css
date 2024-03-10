@@ -1,13 +1,14 @@
-
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
 
 body {
-    background-color: rgb(83, 28, 28);
+    background-color: rgb(57, 116, 123);
     display: grid;
     grid-template-rows: 100px 1fr;
     gap: 50px;
     padding: 0px;
     margin: 0px;
-
 }
 
 h1 {
@@ -15,7 +16,7 @@ h1 {
 }
 
 #header {
-    background-color: paleturquoise;
+    background: linear-gradient(to right, rgb(129, 124, 124), rgb(37, 28, 28));
     align-self: start;
     display: grid;
 }
@@ -36,13 +37,13 @@ h1 {
     background-color: rgb(238, 76, 76);
     box-sizing: border-box;
     padding: 0px;
-    border: 2px transparent solid;
+    border: 3px transparent solid;
     border-radius: 8px;
     box-shadow: 3px 3px 5px 2px;
 }
 
 .book:hover {
-    border: 2px solid white;
+    border: 3px solid white;
     transition: 300ms;
 }
 
@@ -51,7 +52,15 @@ button {
     height: 50px;
     width: 200px;
     background-color: aquamarine;
-    font-size: 20px;    
+    font-size: 20px;  
+    border: 1px transparent solid;  
+    box-shadow: 2px 2px 2px 2px;
+}
+
+button:hover {
+    border: 1px solid black;
+    box-shadow: 0px 0px 0px 0px;
+    transition: 100ms;
 
 }
 
@@ -77,7 +86,7 @@ dialog {
     padding: 20px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     border-radius: 10px;
     font-size: 18px;
     margin: 15px 0px 15px 0px;
