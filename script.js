@@ -34,10 +34,14 @@ openModal.addEventListener('click', () => {
 });
 
 document.addEventListener ('click', function (e) {
-    removeBook(e);
-    console.log (myLibrary);
-
+    if (e.target.classList.contains('removeBook')) {
+        removeBook(e);
+    } else if (e.target.classList.contains('readCheck')){
+        readToggle(e);
+    }
 });
+
+
 
 function generateBook(title, author, pages, readStatus) {
     this.title = title;
@@ -45,6 +49,21 @@ function generateBook(title, author, pages, readStatus) {
     this.pages = pages;
     this.readStatus = readStatus;
 }
+
+function readToggle(e) {
+    let checkIndex = e.target.parentElement.getAttribute('data-index');
+    console.log ('TEST TEST TEST');
+    myLibrary[checkIndex].readStatus = !myLibrary[checkIndex].readStatus;
+    console.log(myLibrary[checkIndex].readStatus);
+}
+
+// generateBook.prototype.readToggle = () => {
+//     if (this.readStatus == true){
+//         this.readStatus = false;
+//     } else {
+//         this.readStatus = true;
+//     }
+// }
 
 function addToLibrary(newBook) {
     myLibrary.push(newBook);
@@ -82,6 +101,7 @@ function drawLibrary() {
         label.textContent = "Finished  ";
         label.style.display = "inline";
         checkbox.checked = book.readStatus;
+        checkbox.classList.add ('readCheck');
         remove.classList.add ('removeBook');
         remove.textContent = "Remove";
 
@@ -92,7 +112,6 @@ function drawLibrary() {
 }
 
 function removeBook(e) {
-    if (e.target.classList.contains('removeBook')) {
         let removeIndex = e.target.parentElement.getAttribute('data-index');
         console.log (removeIndex);
         myLibrary.splice(removeIndex, 1);
@@ -104,7 +123,6 @@ function removeBook(e) {
             books[i].setAttribute ('data-index', currentIndex - 1);
         }
         e.target.parentElement.remove();
-    }
 }
 
 });
