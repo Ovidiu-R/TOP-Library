@@ -20,7 +20,7 @@ openModal.addEventListener('click', () => {
     const readStatus = document.getElementById('readStatus');
     document.getElementById('addBook').addEventListener('click', () => { 
         if (title.validity.valid && author.validity.valid) {
-        let newBook = new generateBook(title.value, author.value, pages.value, readStatus.checked);
+        let newBook = new GenerateBook(title.value, author.value, pages.value, readStatus.checked);
         addToLibrary(newBook);
         resetModal();
         drawLibrary();
@@ -37,11 +37,13 @@ document.addEventListener ('click', function (e) {
     }
 });
 
-function generateBook(title, author, pages, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
+class GenerateBook {
+    constructor(title, author, pages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
 }
 
 function readToggle(e) {
