@@ -9,25 +9,45 @@ const myLibrary = [
 ];
 
 const dialog = document.querySelector('dialog');
+const bookForm = document.getElementById('bookForm');
 const openModal = document.getElementById('openModal');
 const library = document.getElementById('library');
+const addBook = document.getElementById('addBook');
+const title = document.getElementById('title');
+const author = document.getElementById('author');
 
 openModal.addEventListener('click', () => {
     dialog.showModal();
-    const title = document.getElementById('title');
-    const author = document.getElementById('author');
-    const pages = document.getElementById('pages');
-    const readStatus = document.getElementById('readStatus');
-    document.getElementById('addBook').addEventListener('click', () => { 
-        if (title.validity.valid && author.validity.valid) {
-        let newBook = new GenerateBook(title.value, author.value, pages.value, readStatus.checked);
-        addToLibrary(newBook);
-        resetModal();
-        drawLibrary();
-        dialog.close();
-        }
-    });
 });
+
+bookForm.addEventListener('submit', (event) => { 
+        const pages = document.getElementById('pages');
+        const readStatus = document.getElementById('readStatus');
+        event.preventDefault();
+        if (title.value !== '' && author.value !== '') {
+            let newBook = new GenerateBook(title.value, author.value, pages.value, readStatus.checked);
+            addToLibrary(newBook);
+            resetModal();
+            drawLibrary();
+            dialog.close();
+        } else if (title.value === '') {
+            title.setCustomValidity('You must enter a book title!');
+            title.reportValidity();
+        } else if (author.value === '') {
+            author.setCustomValidity('You must enter an author name!');
+            author.reportValidity();
+        }
+});
+
+//Make sure custom validity message disappears as soon as user starts typing inside inputs
+const textFields = document.querySelectorAll('input[type="text"]');     
+textFields.forEach(input => {
+    input.addEventListener('input', () => {
+        input.setCustomValidity('');
+        input.checkValidity();
+    })
+});
+
 
 document.addEventListener ('click', function (e) {
     if (e.target.classList.contains('removeBook')) {
@@ -77,6 +97,7 @@ function drawLibrary() {
         let checkbox = document.createElement('input');
         let remove = document.createElement('button');
         checkbox.type = 'checkbox';
+        checkbox.id = `${book.title}Check`
         container.classList.add ('book');
         container.setAttribute ('data-index', myLibrary.indexOf(book));
         title.textContent = book.title;
